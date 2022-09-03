@@ -17,6 +17,7 @@ export const VideogameContainer = ({videogames}) => {
             {videogames.map(game => {
                 return (
                     <VideogameCard
+                        key={game.id}
                         id={game.id}
                         name={game.name}
                         image={game.background_image}

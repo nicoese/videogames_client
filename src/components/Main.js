@@ -240,7 +240,7 @@ export class Main extends Component {
 
                                     {this.props.genres.genres.map(genre => {
                                         return (
-                                            <label>
+                                            <label key={genre.id}>
                                                 <input
                                                     onChange={(event) => this.handleCheckBoxes(event.target.title, event.target)}
                                                     className={'check'} title={'genres'} type="checkbox"
@@ -252,7 +252,7 @@ export class Main extends Component {
                                     <label className={'filterLabel'} htmlFor="Platforms">Platforms</label>
                                     {this.props.platforms.map(platform => {
                                         return (
-                                            <label htmlFor="">
+                                            <label key={platform.id} htmlFor="">
                                                 <input
                                                     onChange={(event) => this.handleCheckBoxes(event.target.title, event.target)}
                                                     className={'check'} type="checkbox" title={'platforms'}
@@ -274,8 +274,9 @@ export class Main extends Component {
                                 <Pagination>
                                     {
                                         this.props.pageNumbers.map(elem => {
-                                            return <PageButton onClick={(event) => {
-                                                console.log(this.props.videogames[0])
+                                            return <PageButton
+                                                key={elem}
+                                                onClick={(event) => {
                                                 if (this.props.videogames[0].hasOwnProperty('database')) {
                                                     this.props.clearState()
                                                     this.props.setPageNumber(event.target.innerText)

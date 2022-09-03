@@ -20,6 +20,7 @@ function App() {
         dispatch(getVideogamePage(1))
         dispatch(getVideogameGenres())
         dispatch(getVidegamePlatforms())
+        
     }, [])
 
   return (

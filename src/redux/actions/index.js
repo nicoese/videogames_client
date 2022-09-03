@@ -21,6 +21,9 @@ export const SET_ERROR = 'SET_ERROR'
 export const CLEAN_ERROR = 'CLEAN_ERROR'
 
 
+const {REACT_APP_API_URL} = process.env
+
+
 export const cleanError = () => {
     return (dispatch) => {
         return dispatch({
@@ -41,7 +44,7 @@ export const setPageNumber = (pageNumber) => {
 
 export const getExclusives = () => {
     return async (dispatch) => {
-        return axios.get(`https://videogames-api-nice.onrender.com/videogames/exclusives`)
+        return axios.get(`${REACT_APP_API_URL}/videogames/exclusives`)
             .then(json => {
                 dispatch({
                     type: GET_EXCLUSIVES,
@@ -76,7 +79,7 @@ export const setVideogamesBack = (gamesBeforeFilter) => {
 
 export const getVidegamePlatforms = () => {
     return async (dispatch) => {
-        return axios.get(`https://videogames-api-nice.onrender.com/videogames/platforms`)
+        return axios.get(`${REACT_APP_API_URL}/videogames/platforms`)
             .then(json => {
                 dispatch({
                     type: GET_VIDEOGAME_PLATFORMS,
@@ -119,7 +122,7 @@ export const clearState = () => {
 
 export const searchGame = (name) => {
     return async (dispatch) => {
-        return axios.get(`https://videogames-api-nice.onrender.com/videogames?name=${name}`)
+        return axios.get(`${REACT_APP_API_URL}/videogames?name=${name}`)
             .then(json => {
                 dispatch({
                     type: SEARCH_GAME,
@@ -187,7 +190,7 @@ export const sortVideogamesAsc = (property) => {
 
 export const getVideogamePage = (pageNumber) => {
     return async (dispatch) => {
-        return axios.get(`https://videogames-api-nice.onrender.com/videogames?page=${pageNumber}`)
+        return axios.get(`${REACT_APP_API_URL}/videogames?page=${pageNumber}`)
             .then(json => {
                 dispatch({
                     type: GET_VIDEOGAME_PAGE,
@@ -206,7 +209,7 @@ export const getVideogamePage = (pageNumber) => {
 
 export const getVideogameDetail = (videogameId) => {
     return async (dispatch) => {
-        return axios.get(`https://videogames-api-nice.onrender.com/videogames/${videogameId}`)
+        return axios.get(`${REACT_APP_API_URL}/videogames/${videogameId}`)
             .then(json => {
                 dispatch({
                     type: GET_VIDEOGAME_DETAIL,
@@ -224,7 +227,7 @@ export const getVideogameDetail = (videogameId) => {
 
 export const getVideogameGenres = () => {
     return async (dispatch) => {
-        return axios.get('https://videogames-api-nice.onrender.com/videogames/genres')
+        return axios.get(`${REACT_APP_API_URL}/videogames/genres`)
             .then(json => {
                 dispatch({
                     type: GET_VIDEOGAME_GENRES,
@@ -242,7 +245,7 @@ export const getVideogameGenres = () => {
 
 export const createVideogame = (videogame) => {
     return async (dispatch) => {
-        return axios.post('https://videogames-api-nice.onrender.com/videogames', videogame)
+        return axios.post(`${REACT_APP_API_URL}/videogames`, videogame)
             .then(json => {
                 dispatch({
                     type: CREATE_VIDEOGAME,
